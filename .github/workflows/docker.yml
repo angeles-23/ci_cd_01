@@ -3,12 +3,13 @@ name: Publicar imagen Docker
 on:  
   push: 
     branches: 
-      - main 
+      - main
+
 jobs: 
   build-and-push: 
     runs-on: ubuntu-latest 
-    steps: 
     
+    steps: 
     - name: Checkout 
       uses: actions/checkout@v2 
 
@@ -38,5 +39,5 @@ jobs:
         file: ./Dockerfile 
         push: true 
         tags: |  
-          ${{ secrets.DOCKERHUB_USERNAME }}/ci_cd_01:latest  
+          ${{ secrets.DOCKERHUB_USERNAME }}/ci_cd_01:latest 
           ghcr.io/${{ github.repository_owner }}/ci_cd_01:latest
